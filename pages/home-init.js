@@ -23,7 +23,7 @@ setInterval(tickNow, 1000);
 
 (function initTitleLetters() {
   const WORDS = [
-    { selector: ".anon__title-word--terence", text: "BERENCE" },
+    { selector: ".anon__title-word--terence", text: "TERENCE" },
     { selector: ".anon__title-word--ntsako", text: "NTSAKO" },
     { selector: ".anon__title-word--maluleke", text: "MALULEKE" },
   ];
