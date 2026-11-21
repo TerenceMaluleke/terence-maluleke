@@ -92,6 +92,17 @@
   pointer-events: none;
 }
 
+button.site-nav__section-title {
+  appearance: none;
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 8px 4px;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .site-nav__section-title[hidden] {
   display: none;
 }
@@ -102,6 +113,61 @@
 
 .site-nav__home[hidden] {
   display: none;
+}
+
+.site-nav__back-arrow {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 400;
+  transform: translateY(-1px);
+}
+
+.site-nav__menu {
+  position: fixed;
+  top: calc(max(14px, env(safe-area-inset-top)) + 54px);
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 60;
+  display: grid;
+  gap: 0.5em;
+  padding: 16px 18px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  text-align: right;
+  list-style: none;
+}
+
+.site-nav__menu[hidden] {
+  display: none;
+}
+
+.site-nav__menu-item {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #1a1a1a;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-nav__menu-item:hover,
+.site-nav__menu-item:focus-visible {
+  opacity: 0.5;
+  transform: translateX(-4px);
+  outline: none;
+}
+
+.site-nav__menu-item[aria-current="page"] {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .site-nav__instagram {

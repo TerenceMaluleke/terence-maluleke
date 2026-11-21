@@ -399,7 +399,6 @@ function setGalleryNavExitMode(on) {
     if (!homeNav.hasAttribute("data-gallery-exit")) {
       galleryHomeScrollSection = homeNav.getAttribute("data-scroll-section") || "home";
     }
-    homeNav.textContent = "exit";
     homeNav.removeAttribute("data-scroll-section");
     homeNav.setAttribute("data-gallery-exit", "");
     homeNav.hidden = false;
@@ -408,7 +407,6 @@ function setGalleryNavExitMode(on) {
 
   if (isPaintingsDetailOpen()) return;
 
-  homeNav.textContent = "home";
   homeNav.setAttribute("data-scroll-section", galleryHomeScrollSection);
   homeNav.removeAttribute("data-gallery-exit");
   homeNav.hidden = !document.body.classList.contains("is-past-home");

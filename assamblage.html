@@ -95,8 +95,10 @@
   <nav class="site-nav site-nav--inverse site-nav--with-home" id="siteNav" aria-label="Site links">
     <a class="site-nav__contact" href="mailto:Contact@maluleke.art">contact</a>
     <div class="site-nav__center">
-      <span class="site-nav__section-title" id="siteNavSectionTitle">Assamblage</span>
-      <a class="site-nav__home" href="/" data-scroll-section="home">home</a>
+      <a class="site-nav__home" href="/" data-scroll-section="home" aria-label="Back">
+        <span class="site-nav__back-arrow" aria-hidden="true">&#8249;</span>
+      </a>
+      <button type="button" class="site-nav__section-title" id="siteNavSectionTitle" aria-haspopup="true" aria-expanded="false" aria-controls="siteNavMenu">Assamblage</button>
     </div>
     <a
       class="site-nav__instagram"
@@ -104,6 +106,13 @@
       target="_blank"
       rel="noopener noreferrer"
     >instagram</a>
+  </nav>
+  <nav class="site-nav__menu" id="siteNavMenu" aria-label="Sections" hidden>
+    <a class="site-nav__menu-item" href="/info" data-nav-key="info">Info</a>
+    <a class="site-nav__menu-item" href="/paintings" data-nav-key="paintings">Paintings</a>
+    <a class="site-nav__menu-item" href="/prints" data-nav-key="prints">Prints</a>
+    <a class="site-nav__menu-item" href="/assamblage" data-nav-key="assamblage">Assamblage</a>
+    <a class="site-nav__menu-item" href="/calendar" data-nav-key="calendar">Calendar</a>
   </nav>
   <div id="siteScroller" class="site-scroller">
   <div class="site-scroll__main">
@@ -124,6 +133,7 @@
   <script src="pages/sanity-config.js?v=20260709"></script>
   <script src="pages/sanity-client.js?v=20260810g"></script>
   <script src="pages/analytics-init.js?v=20260617d"></script>
+  <script src="site-nav.js?v=20260810a"></script>
   <script src="pages/maquettes-init.js?v=20260810h"></script>
   <script src="site-loader.js?v=20260713k"></script>
   <script src="image-protection.js?v=20260617b"></script>
