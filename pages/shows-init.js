@@ -495,7 +495,8 @@
     initVideo();
 
     const slug = window.location.hash.replace(/^#/, "").toLowerCase();
-    if (slug === "calendar" || slug === "shows" || slug === "exhibitions") {
+    const onStandaloneCalendarPage = document.body.dataset.currentSection === "calendar";
+    if (onStandaloneCalendarPage || slug === "calendar" || slug === "shows" || slug === "exhibitions") {
       window.setTimeout(() => setShowsVisible(true), 120);
     }
   }

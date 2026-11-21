@@ -261,11 +261,11 @@
 
         <div class="anon__stage">
           <nav class="anon__list" id="anonNav" aria-label="Site">
-            <a class="anon__list-item" href="#info"       data-scroll-section="info"><span class="anon__list-name">Info</span></a>
-            <a class="anon__list-item" href="#paintings"  data-scroll-section="paintings"><span class="anon__list-name">Paintings</span></a>
-            <a class="anon__list-item" href="#prints"     data-scroll-section="prints"><span class="anon__list-name">Prints</span></a>
-            <a class="anon__list-item" href="#maquettes"  data-scroll-section="maquettes"><span class="anon__list-name">Assamblage</span></a>
-            <a class="anon__list-item" href="#calendar"   data-scroll-section="calendar"><span class="anon__list-name">Calendar</span></a>
+            <a class="anon__list-item" href="/info"><span class="anon__list-name">Info</span></a>
+            <a class="anon__list-item" href="/paintings"><span class="anon__list-name">Paintings</span></a>
+            <a class="anon__list-item" href="/prints"><span class="anon__list-name">Prints</span></a>
+            <a class="anon__list-item" href="/assamblage"><span class="anon__list-name">Assamblage</span></a>
+            <a class="anon__list-item" href="/calendar"><span class="anon__list-name">Calendar</span></a>
           </nav>
         </div>
 
@@ -275,208 +275,13 @@
       </main>
     </section>
 
-    <!-- INFO (standalone snap frame) -->
-    <section class="site-section" id="section-info" data-section="info" aria-label="Info">
-      <video
-        class="info-bg-video"
-        id="infoBgVideo"
-        muted
-        loop
-        playsinline
-        webkit-playsinline
-        disablepictureinpicture
-        preload="auto"
-        aria-hidden="true"
-      >
-        <source src="videos/info/muse-5.mp4" type="video/mp4" />
-      </video>
-      <div class="info-stars info-stars--back" id="infoStarsBack" aria-hidden="true">
-        <figure class="info-star" data-star-index="2">
-          <div class="info-star__shape">
-            <video
-              class="info-star__video"
-              data-info-star-video
-              data-star-src="videos/info/archives/archive-fathers-graduation-party.mp4"
-              muted
-              loop
-              playsinline
-              webkit-playsinline
-              disablepictureinpicture
-              preload="auto"
-            ></video>
-          </div>
-        </figure>
-      </div>
-      <div class="info-stars" id="infoStars" aria-hidden="true">
-        <figure class="info-star" data-star-index="0">
-          <div class="info-star__shape">
-            <video
-              class="info-star__video"
-              data-info-star-video
-              data-star-src="videos/info/archives/archive-1a0cc41b.mp4"
-              muted
-              loop
-              playsinline
-              webkit-playsinline
-              disablepictureinpicture
-              preload="auto"
-            ></video>
-          </div>
-        </figure>
-        <figure class="info-star" data-star-index="1">
-          <div class="info-star__shape">
-            <video
-              class="info-star__video"
-              data-info-star-video
-              data-star-src="videos/info/archives/archive-621e3fef.mp4"
-              muted
-              loop
-              playsinline
-              webkit-playsinline
-              disablepictureinpicture
-              preload="auto"
-            ></video>
-          </div>
-        </figure>
-      </div>
-      <main class="poster" aria-label="Info page">
-        <div class="content">
-          <div class="bio-slot">
-            <div class="info-layout">
-              <div class="info-cube-wrap" id="infoCubeWrap">
-                <div class="info-cube-scene" id="infoCubeScene" aria-label="Rotatable video cube — drag to spin">
-                  <div class="info-cube" id="infoCube">
-                    <div class="info-cube__face info-cube__face--front">
-                      <video class="info-cube__video" muted loop playsinline webkit-playsinline disablepictureinpicture preload="metadata" data-info-video>
-                        <source src="videos/maquettes/web/04.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="info-cube__face info-cube__face--back">
-                      <video class="info-cube__video" muted loop playsinline webkit-playsinline disablepictureinpicture preload="metadata" data-info-video>
-                        <source src="videos/maquettes/web/05.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="info-cube__face info-cube__face--left">
-                      <video class="info-cube__video" muted loop playsinline webkit-playsinline disablepictureinpicture preload="metadata" data-info-video>
-                        <source src="videos/maquettes/web/01.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="info-cube__face info-cube__face--right">
-                      <video class="info-cube__video" muted loop playsinline webkit-playsinline disablepictureinpicture preload="metadata" data-info-video>
-                        <source src="videos/maquettes/web/06.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="info-cube__face info-cube__face--top">
-                      <video class="info-cube__video" muted loop playsinline webkit-playsinline disablepictureinpicture preload="metadata" data-info-video>
-                        <source src="videos/maquettes/web/03.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="info-cube__face info-cube__face--bottom">
-                      <video class="info-cube__video" muted loop playsinline webkit-playsinline disablepictureinpicture preload="metadata" data-info-video>
-                        <source src="videos/maquettes/web/07.mp4" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="info-bio-wrap">
-                <p class="bio" id="infoBio"></p>
-                <p id="bioTextSource" hidden>
-                  Terence Ntsako Maluleke is a digital artist and painter. Born in Soweto, South Africa,
-                  Maluleke draws inspiration from the township community he grew up in. Working in a predominantly
-                  figurative mode, he creates stylized portraits and still lifes that explore the contemporary Black urban
-                  experience. Forgoing the specificity of individualistic portraiture, he embraces the multiplicity of
-                  pan-African Black identities in his art. A graduate of The Animation School in Johannesburg, Maluleke is
-                  an accomplished animator who has done visual development work for Walt Disney Animation Studios, Sony
-                  Pictures Animation, Netflix, and Triggerfish. In 2022, the artist co-founded Kasi Sketchbook, a nonprofit
-                  project that offers drawing clubs to children and young adults in Johannesburg's townships.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </section>
-
-    <!-- PAINTINGS (standalone snap frame) -->
-    <section class="site-section" id="section-gallery" data-section="paintings" aria-label="Paintings">
-      <main class="gallery-page" aria-label="Paintings">
-        <div class="gallery-grid" id="galleryGrid" role="list"></div>
-      </main>
-    </section>
-
-    <!-- PRINTS -->
-    <section class="site-section" id="section-prints" data-section="prints" aria-label="Prints">
-      <main class="gallery-page" aria-label="Prints">
-        <div class="gallery-grid" id="printsGrid" role="list"></div>
-      </main>
-    </section>
-
-    <!-- MAQUETTES -->
-    <section class="site-section" id="section-maquettes" data-section="maquettes" aria-label="Assamblage">
-      <main class="gallery-page" aria-label="Assamblage">
-        <div class="gallery-grid" id="maquettesGrid" role="list"></div>
-      </main>
-    </section>
-
-    <!-- CALENDAR -->
-    <section class="site-section" id="section-calendar" data-section="calendar" aria-label="Exhibitions">
-      <main class="exhib" aria-label="Exhibitions">
-        <div class="exhib-bg" aria-hidden="true">
-          <video
-            id="exhibVideo"
-            class="exhib-video"
-            poster="videos/exhibitions-bg-poster.jpg"
-            muted
-            loop
-            playsinline
-            webkit-playsinline
-            disablepictureinpicture
-            preload="metadata"
-          >
-            <source src="videos/exhibitions-bg-web.mp4" type="video/mp4" />
-            <source src="videos/exhibitions-bg.mp4" type="video/mp4" />
-          </video>
-          <div class="exhib-bg__scrim"></div>
-        </div>
-        <div class="exhib-panel">
-          <div class="exhib-cal" aria-label="Exhibitions calendar">
-            <p class="exhib-cal__month" id="exhibMonthLabel" aria-live="polite"></p>
-            <div class="exhib-cal__weekdays" aria-hidden="true">
-              <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
-            </div>
-            <div class="exhib-cal__weeks" id="exhibCalWeeks"></div>
-            <p class="exhib-cal__legend" aria-hidden="true">
-              <span class="exhib-cal__legend-item exhib-cal__legend-item--today">today</span>
-              <span class="exhib-cal__legend-item exhib-cal__legend-item--show">exhibition</span>
-            </p>
-          </div>
-          <div class="exhib-detail" id="exhibDetail" hidden>
-            <h2 class="exhib-detail__title" id="exhibDetailTitle"></h2>
-            <p class="exhib-detail__meta" id="exhibDetailMeta"></p>
-            <p class="exhib-detail__body" id="exhibDetailBody"></p>
-          </div>
-        </div>
-      </main>
-    </section>
-
   </div>
   </div>
 
   <script src="pages/home-init.js?v=20260713e"></script>
-  <script src="pages/gallery-pair-utils.js?v=20260629a"></script>
-  <script src="shared/gallery-grid-layout.js?v=20260713v"></script>
-  <script src="shared/image-preload-cache.js?v=20260628"></script>
-  <script src="pages/sanity-config.js?v=20260709"></script>
-  <script src="pages/sanity-client.js?v=20260709b"></script>
   <script src="pages/info-init.js?v=20260713m"></script>
   <script src="pages/analytics-init.js?v=20260617d"></script>
-  <script src="pages/gallery-init.js?v=20260810b"></script>
-  <script src="pages/shows-init.js?v=20260703c"></script>
-  <script src="pages/prints-init.js?v=20260810b"></script>
-  <script src="pages/maquettes-init.js?v=20260810b"></script>
   <script src="site-loader.js?v=20260713k"></script>
-  <script src="site-scroll.js?v=20260713f"></script>
   <script src="image-protection.js?v=20260617b"></script>
 </body>
 </html>
