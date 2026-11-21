@@ -722,6 +722,10 @@ function detailsPanelHtml() {
         <dt>Medium</dt>
         <dd id="printsRicoMedium">—</dd>
       </div>
+      <div class="gallery-rico__detail gallery-rico__detail--editions" id="printsRicoEditionsRow" hidden>
+        <dt>Editions</dt>
+        <dd id="printsRicoEditions">—</dd>
+      </div>
       <div class="gallery-rico__detail">
         <dt>Year</dt>
         <dd id="printsRicoYear">—</dd>
@@ -1086,6 +1090,12 @@ function updateGalleryDisplay(index, options = {}) {
   if (titleEl) titleEl.textContent = year ? `${item.title}, ${year}` : item.title;
 
   setGalleryDetail("printsRicoMedium", item.medium || "—");
+
+  const editionsRow = document.getElementById("printsRicoEditionsRow");
+  const showEditions = Boolean(item.editions);
+  if (editionsRow) editionsRow.hidden = !showEditions;
+  if (showEditions) setGalleryDetail("printsRicoEditions", item.editions);
+
   setGalleryDetail("printsRicoYear", year || "—");
   setGalleryDetail("printsRicoDimensions", item.dimensions || "—");
   setGalleryDetail("printsRicoStatus", item.sold ? "Sold" : "Available");

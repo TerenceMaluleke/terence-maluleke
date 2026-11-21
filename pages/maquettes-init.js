@@ -964,6 +964,10 @@
           <dt>Medium</dt>
           <dd id="maqRicoMedium">—</dd>
         </div>
+        <div class="gallery-rico__detail gallery-rico__detail--editions" id="maqRicoEditionsRow" hidden>
+          <dt>Editions</dt>
+          <dd id="maqRicoEditions">—</dd>
+        </div>
         <div class="gallery-rico__detail">
           <dt>Year</dt>
           <dd id="maqRicoYear">—</dd>
@@ -1619,6 +1623,12 @@
     }
 
     setDetail("maqRicoMedium", item.medium || "—");
+
+    const editionsRow = document.getElementById("maqRicoEditionsRow");
+    const showEditions = Boolean(item.editions);
+    if (editionsRow) editionsRow.hidden = !showEditions;
+    if (showEditions) setDetail("maqRicoEditions", item.editions);
+
     setDetail("maqRicoYear", item.year || "—");
     setDetail("maqRicoDimensions", item.dimensions || "—");
     setDetail("maqRicoStatus", item.sold ? "Sold" : "Available");

@@ -80,6 +80,13 @@ export const artworkFields = [
     initialValue: "Acrylic on canvas",
   }),
   defineField({
+    name: "editions",
+    title: "Editions",
+    type: "string",
+    group: "details",
+    description: "e.g. 1 of 10, or 1\\2 — leave blank if not applicable.",
+  }),
+  defineField({
     name: "dimensions",
     title: "Dimensions / price line",
     type: "string",
