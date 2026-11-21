@@ -2541,6 +2541,7 @@ async function loadCatalog() {
               title: work.title,
               year: work.year || "",
               medium: work.medium || "",
+              editions: work.editions || "",
               dimensions: work.dimensions || "",
               price: work.price || "",
               sold: Boolean(work.sold),

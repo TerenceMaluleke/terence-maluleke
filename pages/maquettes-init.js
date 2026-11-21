@@ -596,6 +596,7 @@
       title: work.title,
       year: work.year || "",
       medium: work.medium || "Assamblage",
+      editions: work.editions || "",
       dimensions: work.dimensions || "",
       price: work.price || "",
       sold: Boolean(work.sold),
