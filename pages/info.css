@@ -4,22 +4,21 @@
   --info-cube-size: min(28vh, 220px);
   --info-cube-bleed: calc(var(--info-cube-size) * 0.22);
   --info-cube-zone: calc(var(--info-cube-size) + var(--info-cube-bleed) * 2);
+  --info-canvas: #ffffff;
+  --info-ink: #414141;
+  --info-soft: #6e6e6e;
+  --info-muted: #a8a8a8;
+  --info-rule: #eeeeee;
+  --info-font: "Mulish", "Brandon Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #section-info {
   position: relative;
-  background: #000;
-}
-
-#section-info .info-bg-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  pointer-events: none;
+  height: auto !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  overflow: visible !important;
+  background: var(--info-canvas);
 }
 
 /* ── Archive video stars ── */
@@ -176,12 +175,13 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   margin: 0;
-  padding: calc(var(--info-nav-h) + 10px) 0 10px;
+  padding: calc(var(--info-nav-h) + 10px) 0 60px;
   box-sizing: border-box;
-  overflow: hidden;
-  color: #ffffff;
+  overflow: visible;
+  color: var(--info-ink);
   background: transparent;
 }
 
@@ -200,31 +200,31 @@
   position: relative;
   z-index: 3;
   width: 100%;
-  height: 100%;
-  min-height: 0;
+  height: auto;
+  min-height: 100%;
 }
 
 #section-info .bio-slot {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 0;
-  overflow: hidden;
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
 }
 
 #section-info .info-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  height: 100%;
-  min-height: 0;
+  height: auto;
+  min-height: 100%;
   gap: clamp(16px, 3vh, 32px);
   padding: 0 clamp(20px, 5vw, 60px) clamp(20px, 4vh, 40px);
   box-sizing: border-box;
   background: transparent;
-  overflow: hidden;
+  overflow: visible;
 }
 
 #section-info .info-cube-wrap {
@@ -327,13 +327,103 @@
 
 #section-info .info-bio-wrap .bio {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--info-font);
   font-size: clamp(13px, 1.8vw, 16px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.55;
-  letter-spacing: 0.01em;
-  color: #ffffff;
+  letter-spacing: 0.005em;
+  color: var(--info-ink);
   text-align: center;
+}
+
+/* ── CV / Exhibitions / Press ── */
+
+#section-info .info-cv {
+  width: 100%;
+  margin-top: clamp(28px, 5vh, 48px);
+  font-family: var(--info-font);
+  text-align: left;
+}
+
+#section-info .info-cv__section {
+  padding-top: clamp(20px, 3.5vh, 32px);
+  padding-bottom: clamp(20px, 3.5vh, 32px);
+  border-top: 1px solid var(--info-rule);
+}
+
+#section-info .info-cv__section:first-child {
+  border-top: 1px solid var(--info-rule);
+}
+
+#section-info .info-cv__label {
+  margin: 0 0 clamp(10px, 1.8vh, 16px);
+  font-family: var(--info-font);
+  font-size: clamp(11px, 1.3vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--info-soft);
+}
+
+#section-info .info-cv__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.4vh, 12px);
+}
+
+#section-info .info-cv__item {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(12px, 2vw, 20px);
+}
+
+#section-info .info-cv__year {
+  flex: 0 0 auto;
+  width: 3.2em;
+  font-size: clamp(13px, 1.7vw, 15px);
+  font-weight: 300;
+  color: var(--info-muted);
+}
+
+#section-info .info-cv__text {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4em 0.6em;
+  font-size: clamp(13px, 1.7vw, 15px);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--info-ink);
+}
+
+#section-info .info-cv__title {
+  font-weight: 400;
+}
+
+#section-info .info-cv__venue {
+  color: var(--info-soft);
+}
+
+#section-info .info-cv__venue::before {
+  content: "— ";
+}
+
+#section-info .info-cv__list--press .info-cv__venue {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #section-info .info-cv__item {
+    gap: 10px;
+  }
+
+  #section-info .info-cv__year {
+    width: 2.8em;
+  }
 }
 
 @media (max-width: 768px) {
@@ -394,7 +484,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #section-info .info-bg-video,
   #section-info .info-cube__video,
   :is(#section-info, #section-home) .info-star__video {
     display: none;
@@ -409,12 +498,12 @@
   }
 
   #section-info {
-    background: var(--paper, #f0f2f5);
+    background: var(--info-canvas);
   }
 
   #section-info .poster,
   #section-info .info-bio-wrap .bio {
-    color: var(--ink, #1a1a1a);
+    color: var(--info-ink);
     text-shadow: none;
   }
 }
