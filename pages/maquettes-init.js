@@ -86,7 +86,6 @@
   let navInitialized = false;
   let indexInitialized = false;
   let interactionsInitialized = false;
-  let navHomeSection = "home";
   let lastGridCols = 0;
   let lastGridRows = 0;
   let isBuilt = false;
@@ -884,24 +883,17 @@
   }
 
   function setNavExitMode(on) {
-    const homeNav = document.querySelector(".site-nav__home");
-    if (!homeNav) return;
+    const backBtn = document.querySelector(".site-nav__back");
+    if (!backBtn) return;
 
     if (on) {
-      if (!homeNav.hasAttribute("data-gallery-exit")) {
-        navHomeSection = homeNav.getAttribute("data-scroll-section") || "home";
-      }
-      homeNav.removeAttribute("data-scroll-section");
-      homeNav.setAttribute("data-gallery-exit", "");
-      homeNav.hidden = false;
+      backBtn.setAttribute("data-gallery-exit", "");
       return;
     }
 
     if (isPaintingsDetailOpen() || isPrintsDetailOpen()) return;
 
-    homeNav.setAttribute("data-scroll-section", navHomeSection);
-    homeNav.removeAttribute("data-gallery-exit");
-    homeNav.hidden = !document.body.classList.contains("is-past-home");
+    backBtn.removeAttribute("data-gallery-exit");
   }
 
   function frameHtml(item, index, isActive) {

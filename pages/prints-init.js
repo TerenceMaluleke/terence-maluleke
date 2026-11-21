@@ -162,7 +162,6 @@ let galleryImmersive = false;
 let galleryDetailFitIndex = -1;
 let printsIndexInitialized = false;
 let lastIndexPageCount = 0;
-let galleryHomeScrollSection = "home";
 
 function getGalleryIndexScroller() {
   return document.getElementById("printsIndexScroller");
@@ -392,24 +391,17 @@ function isPaintingsDetailOpen() {
 }
 
 function setGalleryNavExitMode(on) {
-  const homeNav = document.querySelector(".site-nav__home");
-  if (!homeNav) return;
+  const backBtn = document.querySelector(".site-nav__back");
+  if (!backBtn) return;
 
   if (on) {
-    if (!homeNav.hasAttribute("data-gallery-exit")) {
-      galleryHomeScrollSection = homeNav.getAttribute("data-scroll-section") || "home";
-    }
-    homeNav.removeAttribute("data-scroll-section");
-    homeNav.setAttribute("data-gallery-exit", "");
-    homeNav.hidden = false;
+    backBtn.setAttribute("data-gallery-exit", "");
     return;
   }
 
   if (isPaintingsDetailOpen()) return;
 
-  homeNav.setAttribute("data-scroll-section", galleryHomeScrollSection);
-  homeNav.removeAttribute("data-gallery-exit");
-  homeNav.hidden = !document.body.classList.contains("is-past-home");
+  backBtn.removeAttribute("data-gallery-exit");
 }
 
 function escapeHtml(str) {

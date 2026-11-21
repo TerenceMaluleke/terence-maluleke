@@ -7,58 +7,38 @@
     return trimmed === "" ? "/" : trimmed;
   }
 
-  function initQuickNavMenu() {
-    const toggle = document.getElementById("siteNavSectionTitle");
+  // The section menu (Info/Paintings/Prints/Assamblage/Calendar) is always
+  // visible on every subpage. The only thing we need to do is mark which
+  // entry matches the current page so it can be de-emphasized.
+  function markActiveMenuItem() {
     const menu = document.getElementById("siteNavMenu");
-    if (!toggle || !menu) return;
+    if (!menu) return;
 
     const currentPath = normalizePath(window.location.pathname);
     menu.querySelectorAll("[data-nav-key]").forEach((link) => {
       const href = normalizePath(link.getAttribute("href"));
       if (href === currentPath) link.setAttribute("aria-current", "page");
     });
-
-    function closeMenu() {
-      if (menu.hidden) return;
-      menu.hidden = true;
-      toggle.setAttribute("aria-expanded", "false");
-    }
-
-    function openMenu() {
-      menu.hidden = false;
-      toggle.setAttribute("aria-expanded", "true");
-    }
-
-    toggle.addEventListener("click", (event) => {
-      event.stopPropagation();
-      if (menu.hidden) openMenu();
-      else closeMenu();
-    });
-
-    document.addEventListener("click", (event) => {
-      if (menu.hidden) return;
-      if (event.target.closest("#siteNavMenu") || event.target.closest("#siteNavSectionTitle")) return;
-      closeMenu();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
-    });
-
-    window.addEventListener("pagehide", closeMenu);
   }
 
-  // When a gallery/prints/assamblage page is showing an artwork detail view,
-  // the back arrow (.site-nav__home) is flagged with [data-gallery-exit] so
-  // that it steps back to that page's own grid instead of leaving to "/".
-  function initGalleryExitHandling() {
+  // The standalone back button lives on its own in the top-left corner of
+  // every subpage, independent of the section menu. When a gallery/prints/
+  // assamblage page is showing an artwork detail view, the button is
+  // flagged with [data-gallery-exit] so that it steps back to that page's
+  // own grid instead of leaving to "/".
+  function initBackButton() {
     document.addEventListener(
       "click",
       (event) => {
-        const galleryExit = event.target.closest("[data-gallery-exit]");
-        if (!galleryExit) return;
+        const backButton = event.target.closest(".site-nav__back");
+        if (!backButton) return;
 
         event.preventDefault();
+
+        if (!backButton.hasAttribute("data-gallery-exit")) {
+          window.location.href = "/";
+          return;
+        }
 
         if (
           document.getElementById("galleryLayout")?.dataset.mode === "detail" &&
@@ -81,6 +61,8 @@
           window.maquettesSetImmersive?.(false);
         } else if (document.getElementById("maquettesLayout")?.dataset.mode === "detail") {
           window.maquettesShowGrid?.();
+        } else {
+          window.location.href = "/";
         }
       },
       true
@@ -88,8 +70,8 @@
   }
 
   function init() {
-    initQuickNavMenu();
-    initGalleryExitHandling();
+    markActiveMenuItem();
+    initBackButton();
   }
 
   if (document.readyState === "loading") {
