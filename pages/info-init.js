@@ -332,6 +332,9 @@ function initCubeRotation() {
   let inertiaFrame = 0;
   let autoFrame = 0;
   let sectionVisible = false;
+  let dragFrame = 0;
+  let pendingDX = 0;
+  let pendingDY = 0;
 
   const clampX = (value) => Math.max(-82, Math.min(82, value));
 
@@ -387,6 +390,40 @@ function initCubeRotation() {
     inertiaFrame = requestAnimationFrame(step);
   }
 
+  function stopDragFrame() {
+    if (dragFrame) {
+      cancelAnimationFrame(dragFrame);
+      dragFrame = 0;
+    }
+    pendingDX = 0;
+    pendingDY = 0;
+  }
+
+  function scheduleDragFrame() {
+    if (dragFrame) return;
+
+    dragFrame = requestAnimationFrame(() => {
+      dragFrame = 0;
+
+      if (!dragging) return;
+
+      const dx = pendingDX;
+      const dy = pendingDY;
+      pendingDX = 0;
+      pendingDY = 0;
+
+      // Nothing accumulated this frame (pointer paused) — skip the write.
+      if (!dx && !dy) return;
+
+      rotY += dx * 0.45;
+      rotX = clampX(rotX - dy * 0.45);
+      velX = -dy * 0.12;
+      velY = dx * 0.12;
+
+      applyRotation();
+    });
+  }
+
   function onPointerDown(event) {
     if (event.button !== undefined && event.button !== 0) return;
 
@@ -397,6 +434,7 @@ function initCubeRotation() {
     velX = 0;
     velY = 0;
     stopInertia();
+    stopDragFrame();
 
     wrap.classList.add("is-dragging");
     wrap.setPointerCapture(event.pointerId);
@@ -412,12 +450,14 @@ function initCubeRotation() {
     lastX = event.clientX;
     lastY = event.clientY;
 
-    rotY += dx * 0.45;
-    rotX = clampX(rotX - dy * 0.45);
-    velX = -dy * 0.12;
-    velY = dx * 0.12;
+    // Accumulate raw pointer deltas; only commit a transform write once per
+    // rendered frame (via rAF) so the cube's 3D transform never updates
+    // faster than the compositor can actually paint — this is what was
+    // causing the video-textured faces to tear/shear during fast drags.
+    pendingDX += dx;
+    pendingDY += dy;
 
-    applyRotation();
+    scheduleDragFrame();
     event.preventDefault();
   }
 
@@ -427,6 +467,7 @@ function initCubeRotation() {
     dragging = false;
     pointerId = null;
     wrap.classList.remove("is-dragging");
+    stopDragFrame();
 
     if (wrap.hasPointerCapture(event.pointerId)) {
       wrap.releasePointerCapture(event.pointerId);

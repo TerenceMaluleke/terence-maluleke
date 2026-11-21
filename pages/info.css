@@ -281,6 +281,8 @@
   overflow: hidden;
   backface-visibility: hidden;
   background: #141414;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 #section-info .info-cube__face--front {
