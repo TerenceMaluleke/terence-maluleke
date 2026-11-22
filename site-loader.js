@@ -146,16 +146,13 @@
       waitForMaquettesCatalog(),
     ]);
 
-    const { previews, other } = collectArtworkUrls();
-    // Grid thumbnails are enough for instant browse. Full-resolution "view"
-    // images are intentionally NOT bulk-preloaded here — each page's own
-    // detail-view code (prefetchDetailImage/prefetchView) already warms the
-    // full-res image for the piece being opened plus its immediate
-    // neighbors, on demand, instead of downloading every piece in the
-    // gallery up front.
+    const { previews, views, other } = collectArtworkUrls();
+    // First page of each grid is enough for instant browse; views can trail.
     const firstWave = [...previews, ...other];
+    const secondWave = views;
 
     if (firstWave.length) await preloadImageBatch(firstWave);
+    if (secondWave.length) await preloadImageBatch(secondWave);
   }
 
   async function run() {
