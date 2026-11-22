@@ -200,6 +200,25 @@
   outline: none;
 }
 
+/* Desktop trial: paintings/prints/assamblage grid without the card frame
+   (no padding, rounded corners, background, blur, or shadow) — mobile
+   keeps the card look untouched. */
+@media (min-width: 769px) {
+  :is(#section-gallery, #section-prints, #section-maquettes) .gallery-index__cell {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  :is(#section-gallery, #section-prints, #section-maquettes) .gallery-index__cell:hover,
+  :is(#section-gallery, #section-prints, #section-maquettes) .gallery-index__cell:focus-visible {
+    box-shadow: none;
+  }
+}
+
 :is(#section-gallery, #section-prints, #section-maquettes) .gallery-index__img {
   position: relative;
   z-index: 1;
