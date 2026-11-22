@@ -23,8 +23,6 @@
   min-height: 100dvh;
   overflow: hidden;
   isolation: isolate;
-  padding-top: var(--site-nav-clearance, 160px);
-  box-sizing: border-box;
 }
 
 #section-calendar .exhib.is-detail-open {

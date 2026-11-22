@@ -1,6 +1,6 @@
 :root {
   --ink: #000000;
-  --info-nav-h: max(56px, calc(env(safe-area-inset-top) + 48px + 130px));
+  --info-nav-h: max(56px, env(safe-area-inset-top) + 48px);
   --info-cube-size: min(28vh, 220px);
   --info-cube-bleed: calc(var(--info-cube-size) * 0.22);
   --info-cube-zone: calc(var(--info-cube-size) + var(--info-cube-bleed) * 2);
