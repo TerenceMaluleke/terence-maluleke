@@ -21,6 +21,15 @@
   background: var(--info-canvas) !important;
 }
 
+/* ── Keep the fixed top nav legible over the long CV list ── */
+
+body[data-current-section="info"] .site-nav {
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
 /* ── Archive video stars ── */
 
 :is(#section-info, #section-home) .info-stars {
